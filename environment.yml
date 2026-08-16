@@ -6,4 +6,6 @@ dependencies:
   - autopep8
   - perl=5.32.1
   - perl-app-cpanminus
+  - poethepoet
+  - pdoc
   - pip

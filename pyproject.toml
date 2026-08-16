@@ -12,3 +12,19 @@ dependencies = [
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["*"]
+
+[tool.poe.tasks]
+download = "python src/downloader/client.py"
+
+[tool.transport-analyser]
+bus_s_url = "https://gtfs.ztp.krakow.pl/GTFS_KRK_A.zip"
+bus_s_files =  [
+    "trips.txt", 
+    "stop_times.txt", 
+    "routes.txt",
+    "stops.txt"
+]
+bus_s_dir = "data/downloads/bus_schedule"
+bus_u_url = "https://gtfs.ztp.krakow.pl/TripUpdates_A.pb"
+bus_u_file =  "TripUpdates_A.pb"
+bus_u_dir = "data/downloads/bus_updates"
