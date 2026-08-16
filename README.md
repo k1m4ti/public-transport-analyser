@@ -23,15 +23,17 @@ Install the package and its dependencies locally:
 pip install -e .
 ```
 
-4. Running the Program
+4. Running the Script Defined in `pyproject.toml`
 ```sh
-python src/main.py
+poe download
 ```
 
 ## Project Structure
 ```text
 .
 ├── README.md
+├── data
+│   └── downloads           # Directory to temporarily keep raw files
 ├── environment.yml         # Micromamba setup (Python + Perl)
 ├── perl                    # Perl codebase
 │   ├── lib                 # Custom Perl modules (.pm)
@@ -43,4 +45,23 @@ python src/main.py
 └── tests
     ├── perl                # Perl tests (using Test::More & prove)
     └── python              # Python tests (using pytest)
+```
+
+## Configuration
+
+This project reads its configuration parameters from `pyproject.toml`. Under the `[tool.transport-analyser]` section, make sure you define the following settings:
+
+```toml
+[tool.transport-analyser]
+bus_s_url = "https://gtfs.ztp.krakow.pl/GTFS_KRK_A.zip"     # source of schedule archive
+bus_s_files =  [
+    "trips.txt", 
+    "stop_times.txt", 
+    "routes.txt",
+    "stops.txt"
+]                                                           # list of files we want to extract
+bus_s_dir = "data/downloads/bus_schedule"                   # directory we want to store above files
+bus_u_url = "https://gtfs.ztp.krakow.pl/TripUpdates_A.pb"   # source of bus trip updates
+bus_u_file =  "TripUpdates_A.pb"                            # the name of the file with updates
+bus_u_dir = "data/downloads/bus_updates"                    # parent directory of above file
 ```

@@ -11,7 +11,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-downloads/
+docs/
 eggs/
 .eggs/
 lib/
@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+data/downloads/*
+!data/downloads/.gitkeep
