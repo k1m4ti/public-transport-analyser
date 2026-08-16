@@ -1,0 +1,9 @@
+name: public-transport-analyser
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - autopep8
+  - perl=5.32.1
+  - perl-app-cpanminus
+  - pip
